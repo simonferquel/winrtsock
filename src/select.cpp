@@ -24,103 +24,115 @@ int __stdcall select(int /*nfds*/, fd_set *readfds, fd_set *writefds, fd_set *ex
 
     bool finished = false;
 
-    //Probably should memcpy these based on fd_count
-    //just in case FD_SETSIZE is defined different from when
-    //we compile it
-    fd_set local_readfds = *readfds;
-    fd_set local_writefds = *writefds;
-    fd_set local_exceptfds = *exceptfds;
+    ////Probably should memcpy these based on fd_count
+    ////just in case FD_SETSIZE is defined different from when
+    ////we compile it
+    //fd_set local_readfds = *readfds;
+    //fd_set local_writefds = *writefds;
+    //fd_set local_exceptfds = *exceptfds;
 
     while (!finished)
     {
-        int fdCount = local_readfds.fd_count;
+		int fdCount = 0;
+		if (readfds != nullptr){
+			fd_set local_readfds = *readfds;
 
-        for (int i = 0; i < fdCount; i++)
-        {
-            if (local_readfds.fd_array[i] != 0)
-            {
-                auto socketHandle = SocketManagement::GetSocket(local_readfds.fd_array[i]);
+			int fdCount = local_readfds.fd_count;
 
-                if (socketHandle != nullptr)
-                {
-                    auto socket = socketHandle->GetSocketAsNoRef<IRWSocket>();
+			for (int i = 0; i < fdCount; i++)
+			{
+				/*if (local_readfds.fd_array[i] != 0)
+				{*/
+					auto socketHandle = SocketManagement::GetSocket(local_readfds.fd_array[i]);
 
-                    if (socket != nullptr)
-                    {
-                        if (socket->GetLoadedBytes() == 0)
-                        {
-                            readfds->fd_array[i] = 0;
-                        }
-                        else
-                        {
-                            readfds->fd_array[i] = local_readfds.fd_array[i];
-                            socketStatusFoundCount++;
-                        }
-                    }
-                }
-            }
-        }
+					if (socketHandle != nullptr)
+					{
+						auto socket = socketHandle->GetSocketAsNoRef<IRWSocket>();
 
-        fdCount = 0;
-        fdCount = local_writefds.fd_count;
+						if (socket != nullptr)
+						{
+							if (socket->GetLoadedBytes() == 0)
+							{
+								//readfds->fd_array[i] = 0;
+							}
+							else
+							{
+								readfds->fd_array[i] = local_readfds.fd_array[i];
+								socketStatusFoundCount++;
+							}
+						}
+					}
+				//}
+			}
 
-        for (int i = 0; i < fdCount; i++)
-        {
-            if (local_writefds.fd_array[i] != 0)
-            {
-                auto socketHandle = SocketManagement::GetSocket(local_writefds.fd_array[i]);
-                if (socketHandle != nullptr)
-                {
-                    auto socket = socketHandle->GetSocketAsNoRef<IRWSocket>();
 
-                    if (socket != nullptr)
-                    {
-                        if (socket->GetConnectionStatus() != InternalSocketConnectionStatus::Connected)
-                        {
-                            writefds->fd_array[i] = 0;
-                        }
-                        else
-                        {
-                            writefds->fd_array[i] = local_writefds.fd_array[i];
-                            socketStatusFoundCount++;
-                        }
-                    }
-                }
-            }
-        }
+			fdCount = 0;
+		}
+		if (writefds != nullptr){
+			fd_set local_writefds = *writefds;
+			fdCount = local_writefds.fd_count;
 
-        fdCount = 0;
-        fdCount = local_exceptfds.fd_count;
+			for (int i = 0; i < fdCount; i++)
+			{
+				if (local_writefds.fd_array[i] != 0)
+				{
+					auto socketHandle = SocketManagement::GetSocket(local_writefds.fd_array[i]);
+					if (socketHandle != nullptr)
+					{
+						auto socket = socketHandle->GetSocketAsNoRef<IRWSocket>();
 
-        for (int i = 0; i < fdCount; i++)
-        {
-            if (local_exceptfds.fd_array[i] != 0)
-            {
-                auto socketHandle = SocketManagement::GetSocket(local_exceptfds.fd_array[i]);
-                if (socketHandle != nullptr)
-                {
-                    auto socket = socketHandle->GetSocketAsNoRef<IRWSocket>();
+						if (socket != nullptr)
+						{
+							if (socket->GetConnectionStatus() != InternalSocketConnectionStatus::Connected)
+							{
+								writefds->fd_array[i] = 0;
+							}
+							else
+							{
+								writefds->fd_array[i] = local_writefds.fd_array[i];
+								socketStatusFoundCount++;
+							}
+						}
+					}
+				}
+			}
 
-                    if (socket != nullptr)
-                    {
-                        InternalSocketConnectionStatus status = socket->GetConnectionStatus();
+			fdCount = 0;
+		}
+		if (exceptfds != nullptr){
+			fd_set local_exceptfds = *exceptfds;
+			fdCount = local_exceptfds.fd_count;
 
-                        if (status != InternalSocketConnectionStatus::ForcablyClosed && 
-                            status != InternalSocketConnectionStatus::Refused        && 
-                            status != InternalSocketConnectionStatus::TimedOut       && 
-                            status != InternalSocketConnectionStatus::Unreachable)
-                        {
-                            exceptfds->fd_array[i] = 0;
-                        }
-                        else
-                        {
-                            exceptfds->fd_array[i] = local_exceptfds.fd_array[i];
-                            socketStatusFoundCount++;
-                        }
-                    }
-                }
-            }
-        }
+			for (int i = 0; i < fdCount; i++)
+			{
+				if (local_exceptfds.fd_array[i] != 0)
+				{
+					auto socketHandle = SocketManagement::GetSocket(local_exceptfds.fd_array[i]);
+					if (socketHandle != nullptr)
+					{
+						auto socket = socketHandle->GetSocketAsNoRef<IRWSocket>();
+
+						if (socket != nullptr)
+						{
+							InternalSocketConnectionStatus status = socket->GetConnectionStatus();
+
+							if (status != InternalSocketConnectionStatus::ForcablyClosed &&
+								status != InternalSocketConnectionStatus::Refused        &&
+								status != InternalSocketConnectionStatus::TimedOut       &&
+								status != InternalSocketConnectionStatus::Unreachable)
+							{
+								exceptfds->fd_array[i] = 0;
+							}
+							else
+							{
+								exceptfds->fd_array[i] = local_exceptfds.fd_array[i];
+								socketStatusFoundCount++;
+							}
+						}
+					}
+				}
+			}
+		}
 
         if (socketStatusFoundCount || totalMsSlept >= timeoutMs)
             finished = true;

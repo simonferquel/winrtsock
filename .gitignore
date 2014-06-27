@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/proj.winrt/WinRT/vs2013/Win32/Debug
+/proj.winrt/winrtsock_2013.vcxproj.user
+/winrtsock.WindowsPhone/Debug

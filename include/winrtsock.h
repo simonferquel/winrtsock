@@ -380,6 +380,8 @@ extern "C" {
 #define SO_LINGER       0x0080          /* linger on close if data present */
 #define SO_OOBINLINE    0x0100          /* leave received OOB data in line */
 
+#define	O_NONBLOCK	0x0004
+
 #define SO_DONTLINGER   (u_int)(~SO_LINGER)
 
 		/*
@@ -738,6 +740,13 @@ extern "C" {
 #ifdef __cplusplus
 		extern "C" {
 #endif
+			struct iovec
+			{
+				void*    iov_base;  /* base address of the data storage area */
+				/* represented by the iovec structure */
+				int	    iov_len;   /* size of the data storage area in bytes */
+
+			};
             void __stdcall Sleep(_In_ DWORD dwMilliseconds);
 
 			SOCKET PASCAL FAR accept(
@@ -829,6 +838,10 @@ extern "C" {
 				_In_ int flags,
 				_In_reads_bytes_opt_(tolen) const struct sockaddr FAR *to,
 				_In_ int tolen);
+
+			int PASCAL FAR writev(int sockfd, const struct iovec *iov, int iovcnt);
+
+			int PASCAL FAR readv(int sockfd, const struct iovec *iov, int iovcnt);
 
 			int PASCAL FAR setsockopt(
 				_In_ SOCKET s,

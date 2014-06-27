@@ -104,9 +104,9 @@ void InternalDatagramSocket::Bind(std::wstring localaddress, int localport /*= 0
     }
 }
 
-void InternalDatagramSocket::Connect(const std::wstring /*remoteAddress*/, int /*port*/)
+void InternalDatagramSocket::Connect(const std::wstring remoteAddress, int port)
 {
-    throw std::logic_error("The method or operation is not implemented.");
+	create_task(m_socket->ConnectAsync(ref new HostName(ref new Platform::String(remoteAddress.c_str())), port.ToString())).get();
 }
 
 int InternalDatagramSocket::SendTo(const char* buffer, int length, const std::wstring& remotename, int remotePort)
@@ -179,9 +179,22 @@ int InternalDatagramSocket::SendTo(const char* buffer, int length, const std::ws
     return length;
 }
 
-int InternalDatagramSocket::Send(const char*, int)
+int InternalDatagramSocket::Send(const char*buffer , int length)
 {
-    throw std::logic_error("The method or operation is not implemented.");
+	if (!m_defaultOutputWriter){
+		m_defaultOutputWriter = ref new DataWriter(m_socket->OutputStream);
+	}
+	auto rtBuffer = m_sendBuffer;
+
+	length = min(static_cast<int>(rtBuffer->Capacity), length);
+
+	CopyToIBuffer((unsigned char*) buffer, length, rtBuffer);
+	rtBuffer->Length = length;
+
+	m_defaultOutputWriter->WriteBuffer(rtBuffer);
+
+	m_defaultOutputWriter->StoreAsync();
+	return length;
 }
 
 int InternalDatagramSocket::Receive(unsigned char* buffer, int len)

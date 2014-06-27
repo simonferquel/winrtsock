@@ -79,5 +79,6 @@ private:
     bool m_isWriteReady;
     bool m_shutdown;
     RecvHelper^ m_recvHelper;
+	Windows::Storage::Streams::DataWriter^ m_defaultOutputWriter;
 };
 

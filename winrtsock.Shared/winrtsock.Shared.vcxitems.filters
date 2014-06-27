@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\__WSAFDIsSet.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\_beginthreadex.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\accept.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\bind.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\BufferReader.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\closesocket.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\connect.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\freeaddrinfo.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\getaddrinfo.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gethostbyaddr.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gethostbyname.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gethostname.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\getpeername.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\getsockname.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\getsockopt.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\htonl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\htons.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\inet_addr.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\inet_aton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\inet_ntoa.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\inet_pton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\InternalDatagramSocket.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\InternalSocket.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\include\InternalSocket.h" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\InternalSocketListener.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\InternalSocketManagement.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\InternalStreamSocket.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\ioctlsocket.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\listen.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\ntohl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\ntohs.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\recv.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\recvfrom.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\select.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\send.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\sendto.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\setsockopt.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\shutdown.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Sleep.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\socket.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\SocketHandle.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\winrtsock.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\WSACleanup.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\src\include\BufferReader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\src\include\inet_aton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\src\include\InternalSocketManagement.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\src\include\InternalStreamSocket.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\src\include\IRWSocket.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\src\include\MiscUtils.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\src\include\ppltaskhelpers.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\src\include\SocketHandle.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\winrtsock.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\winrtsockEx.h" />
+  </ItemGroup>
+</Project>
