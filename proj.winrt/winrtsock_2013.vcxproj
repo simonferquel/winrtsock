@@ -135,7 +135,7 @@
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <AdditionalIncludeDirectories>../../winrtsock/include;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_32BIT_TIME_T;_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -148,12 +148,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <AdditionalIncludeDirectories>../../winrtsock/include;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_32BIT_TIME_T;_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
@@ -167,12 +167,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <AdditionalIncludeDirectories>../../winrtsock/include;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_32BIT_TIME_T;_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -185,12 +185,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <AdditionalIncludeDirectories>../../winrtsock/include;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_32BIT_TIME_T;_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
@@ -204,12 +204,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <AdditionalIncludeDirectories>../../winrtsock/include;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_32BIT_TIME_T;_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -222,12 +222,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <AdditionalIncludeDirectories>../../winrtsock/include;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_32BIT_TIME_T;_CRT_SECURE_NO_WARNINGS;WINRTSOCKS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>

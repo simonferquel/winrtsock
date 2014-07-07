@@ -5,3 +5,6 @@
 /proj.winrt/WinRT/vs2013/Win32/Debug
 /proj.winrt/winrtsock_2013.vcxproj.user
 /winrtsock.WindowsPhone/Debug
+/proj.winrt/WinRT/vs2013/ARM/Debug
+/proj.winrt/WinRT/vs2013/Win32/Release
+/winrtsock.WindowsPhone/ARM/Debug
